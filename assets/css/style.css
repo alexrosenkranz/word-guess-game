@@ -6,3 +6,15 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Noto Serif JP', sans-serif;
 } 
 
+.media-background {
+  background-color: rgb(51, 51, 51);
+}
+
+/* media query */
+@media screen and (max-width: 768px) {
+
+  .media-background {
+    background-color: aquamarine;
+  }
+
+}

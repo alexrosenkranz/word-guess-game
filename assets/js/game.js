@@ -106,21 +106,36 @@ function checkIncorrect(letter) {
     incorrectLettersHTML.textContent = incorrectLetterBank.join(" ");
     guessesLeftHTML.textContent = guessesLeft;
   }
-
+  checkLoss();
 }
 
 // function for checking if user lost
+function checkLoss() {
+  if (guessesLeft <= 0) {
+    losses++;
+    gameRunning = false;
+    lossesHTML.textContent = losses;
+  }
+  checkWin();
+}
 
 // function for checking if user won
+function checkWin() {
+  if (pickedWord.toLowerCase() === pickedWordPlaceholderArray.join("").toLowerCase()) {
+    wins++;
+    gameRunning = false;
+    winsHTML.textContent = wins;
+  }
+}
 
 // set up DOM event handlers (onkeyup & new game button click)
 document.onkeyup = function(event) {
   // check to see if letter pressed is a-z
-  if (event.keyCode >= 65 && event.keyCode <= 90) {
+  if (event.keyCode >= 65 && event.keyCode <= 90 && gameRunning === true) {
     // run game logic
     letterGuess(event.key);
   } else {
-    alert("Press something that's a-z!");
+    alert("Press something that's a-z or start a new game!");
   }
 }
 
