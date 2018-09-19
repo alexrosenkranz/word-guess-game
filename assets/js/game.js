@@ -13,6 +13,7 @@ var guessesLeftHTML = document.getElementById("guesses-left");
 
 // wins & losses
 var wins = 0;
+console.log(wins);
 var losses = 0;
 
 // guessesLeft integer (will be reset upon new game start)
